@@ -1,0 +1,51 @@
+<mat-card class="playlist">
+    <mat-card-header>
+        <mat-card-title>Playlist A</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-list *ngIf="playlistA.length">
+            <mat-list-item *ngFor="let song of playlistA; let i = index; last as last">
+                {{ song.file.name }}
+
+                <span class="material-icons delete-track" (click)="deleteTrack(i, 'playlistA')">highlight_off</span>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+            </mat-list-item>
+        </mat-list>
+
+        <div class="placeholder" *ngIf="showPlaceholder('playlistA')">No tracks added</div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-fab color="warn" (click)="fileA.click()">
+            <i class="material-icons">file_upload</i>
+        </button>
+        <input #fileA name="fileA" type="file" (change)="addTrack($event, 'playlistA')" multiple accept="audio/*" />
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="playlist">
+    <mat-card-header>
+        <mat-card-title>Playlist B</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-list *ngIf="playlistB.length">
+            <mat-list-item *ngFor="let song of playlistB; let i = index; last as last">
+                {{ song.file.name }}
+
+                <span class="material-icons delete-track" (click)="deleteTrack(i, 'playlistB')">highlight_off</span>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+            </mat-list-item>
+        </mat-list>
+
+        <div class="placeholder" *ngIf="showPlaceholder('playlistB')">No tracks added</div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-fab color="warn" (click)="fileB.click()">
+            <i class="material-icons">file_upload</i>
+        </button>
+        <input #fileB name="fileB" type="file" (change)="addTrack($event, 'playlistB')" multiple accept="audio/*" />
+    </mat-card-actions>
+</mat-card>

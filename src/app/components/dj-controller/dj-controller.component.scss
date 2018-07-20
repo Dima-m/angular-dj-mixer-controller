@@ -1,0 +1,26 @@
+:host {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-controls {
+    flex-basis: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 10px;
+    align-self: center;
+    @media (max-width: 992px) {
+        flex-basis: 100%;
+    }
+
+    .main-volume {
+        margin-top: 10px;
+    }
+
+    .volume-icon {
+        color: #fff;
+    }
+}

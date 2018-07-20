@@ -1,0 +1,70 @@
+<mat-card class="player">
+    <mat-card-header *ngIf="playlist.length">
+        <mat-card-title class="playlist-title">{{title}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-list class="track-list">
+            <mat-list-item 
+                class="track"
+                *ngFor="let track of playlist; let i = index"
+                (click)="onPlayTrack(i)"
+                [class.active-track]="i === currentIndex">
+                <span>{{ track.file.name }}</span>
+            </mat-list-item>
+        </mat-list>
+
+        <div class="playlist-title" *ngIf="!playlist.length">No tracks added</div>
+    </mat-card-content>
+
+    <mat-slider
+        *ngIf="track"
+        [max]="track.duration"
+        [step]="0.01"
+        [(ngModel)]="track.currentTime"
+        [value]="currentTime"
+        color="warn">
+    </mat-slider>
+
+    <mat-card-actions *ngIf="track">
+        <button (click)="onReplay()" mat-fab color="warn">
+            <mat-icon>replay</mat-icon>
+        </button>
+        <button (click)="onPlayTrack(currentIndex - 1)" mat-fab color="warn">
+            <mat-icon>skip_previous</mat-icon>
+        </button>
+
+        <button mat-fab (click)="onTogglePlayPause()" color="warn">
+            <i class="material-icons" *ngIf="!track.paused">pause</i>
+            <i class="material-icons" *ngIf="track.paused">play_arrow</i>
+        </button>
+        <button (click)="onPlayTrack(currentIndex + 1)" mat-fab color="warn">
+            <mat-icon>skip_next</mat-icon>
+        </button>
+
+        <mat-list>
+            <mat-list-item>
+                <mat-icon class="volume">volume_up</mat-icon>
+                <mat-slider
+                    [value]="trackVolume"
+                    (change)="onVolumeChange($event)"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    color="warn">
+                </mat-slider>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-icon class="speed">shutter_speed</mat-icon>
+                <mat-slider
+                    [(ngModel)]="track.playbackRate"
+                    min="0"
+                    max="2"
+                    step="0.2"
+                    color="warn">
+                </mat-slider>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-actions>
+</mat-card>

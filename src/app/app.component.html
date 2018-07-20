@@ -1,0 +1,20 @@
+<button mat-fab color="warn" [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+</button>
+
+<span class="app-title">Angular DJ Controller</span>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/upload" routerLinkActive>
+        <mat-icon>cloud_upload</mat-icon>
+        <span>Upload</span>
+    </button>
+    <button mat-menu-item routerLink="/dj-controller" routerLinkActive>
+        <mat-icon>play_circle_outline</mat-icon>
+        <span>DJ Controller</span>
+    </button>
+</mat-menu>
+
+<main class="main">
+    <router-outlet></router-outlet>
+</main>

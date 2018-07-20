@@ -1,0 +1,30 @@
+<player #playerA
+    [title]="'Playlist A'"
+    [playlist]="playlistA"
+    [genVolume]="genVolume"
+    (onStatusChanged)="checkStatus($event)">
+</player>
+
+<section class="main-controls">
+    <button mat-fab (click)="onTogglePlayPause(playerA, playerB)" color="warn">
+        <i class="material-icons" *ngIf="isPlaying">pause</i>
+        <i class="material-icons" *ngIf="!isPlaying">play_arrow</i>
+    </button>
+    <mat-slider
+        class="main-volume"
+        [(ngModel)]="genVolume"
+        min="0"
+        max="100"
+        step="1"
+        color="warn"
+        vertical>
+    </mat-slider>
+    <mat-icon class="volume-icon">volume_up</mat-icon>
+</section>
+
+<player #playerB
+    [title]="'Playlist B'" 
+    [playlist]="playlistB"
+    [genVolume]="genVolume"
+    (onStatusChanged)="checkStatus($event)">
+</player>

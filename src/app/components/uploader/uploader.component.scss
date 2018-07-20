@@ -1,0 +1,61 @@
+:host {
+    min-height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.playlist {
+    color: #fff;
+    flex-basis: 20%;
+    box-sizing: border-box;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #303030;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.03);
+
+    .delete-track {
+        cursor: pointer;
+        font-size: 18px;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    .mat-card-title {
+        border: 1px #f44336 solid;
+        font-size: 18px;
+        color: #fff;
+        background-color: #f44336;
+        padding: 10px 20px;
+        border-radius: 50%;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+    }
+
+    .mat-list-item {
+        color: #fff;
+        font-size: 18px;
+        
+        .mat-divider {
+            border-top-color: #fff;
+        }
+    }
+
+    .mat-card-actions {
+        input {
+            display: none;
+        }
+    }
+
+    .placeholder {
+        margin-left: 85px;
+        font-size: 20px;
+    }
+
+    button {
+        margin-left: 150px;
+        margin-bottom: 20px;
+    }
+}
