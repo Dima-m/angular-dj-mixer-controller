@@ -7,7 +7,7 @@
 ### USAGE
 
 1. Run `npm install`.
-2. Run `ng serve` and go to `http://localhost:4005`
+2. Run `ng serve` and go to `http://localhost:4200`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
