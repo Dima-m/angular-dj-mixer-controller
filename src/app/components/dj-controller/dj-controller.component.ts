@@ -18,7 +18,7 @@ export class DjControllerComponent {
     }
 
     checkStatus(status: string) {
-        return this.isPlaying = status === 'playing' || false;
+        return this.isPlaying = status === 'playing';
     }
 
     onTogglePlayPause(playerA: any, playerB: any) {
