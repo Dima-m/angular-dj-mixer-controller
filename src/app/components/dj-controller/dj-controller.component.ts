@@ -17,11 +17,11 @@ export class DjControllerComponent {
         this.playlistB = this.PlaylistService.getPlaylists('playlistB');
     }
 
-    checkStatus(status) {
+    checkStatus(status: string) {
         return this.isPlaying = status === 'playing' || false;
     }
 
-    onTogglePlayPause(playerA, playerB) {
+    onTogglePlayPause(playerA: any, playerB: any) {
         if (playerA.playlist.length) playerA.onTogglePlayPause();
         if (playerB.playlist.length) playerB.onTogglePlayPause();
     }

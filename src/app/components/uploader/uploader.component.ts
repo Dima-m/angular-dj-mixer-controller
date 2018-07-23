@@ -16,12 +16,12 @@ export class UploaderComponent implements OnInit {
         this.playlistB = this.PlaylistService.getPlaylists('playlistB');
     }
 
-    addTrack(event, playlist: string) {
-        let file = event.target.files[0];
+    addTrack(e: any, playlist: string) {
+        let file = e.target.files[0];
         this.PlaylistService.addTrack(file, playlist);
     }
 
-    showPlaceholder(playlist) {
+    showPlaceholder(playlist: string) {
         return !this[`${playlist}`].length;
     }
 

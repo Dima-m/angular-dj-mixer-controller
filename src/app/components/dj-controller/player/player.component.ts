@@ -47,9 +47,9 @@ export class PlayerComponent implements OnDestroy, OnInit, OnChanges {
         if (this.track) this.track.pause()
     }
 
-    onTrackInit(index) {
+    onTrackInit(i: number) {
         if (this.playlist.length) {
-            this.track = this.PlaylistService.getTrack(this.playlist, index);
+            this.track = this.PlaylistService.getTrack(this.playlist, i);
         
             this.track.addEventListener('timeupdate', () => {
                 this.currentTime = parseInt(this.track.currentTime, 10);
@@ -71,21 +71,21 @@ export class PlayerComponent implements OnDestroy, OnInit, OnChanges {
         this.track.currentTime = 0;
     }
 
-    onPlayTrack(index: number) {
-        if (!this.playlist[index]) return;
+    onPlayTrack(i: number) {
+        if (!this.playlist[i]) return;
 
-        this.currentIndex = index;
+        this.currentIndex = i;
         if (this.track) this.track.pause();
         this.onTrackInit(this.currentIndex);
         this.onTogglePlayPause();
     }
 
-    onVolumeChange(e) {
+    onVolumeChange(e: any) {
         this.trackVolume = e.value;
         this.track.volume = e.value / 100 * this.genVolume / 100;
     }
 
-    onGenVolumeChange(value) {
+    onGenVolumeChange(value: number) {
         if (this.track) {
             this.track.volume = value / 100 * this.trackVolume / 100;
         }
